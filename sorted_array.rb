@@ -4,13 +4,16 @@ class SortedArray
   def initialize(input_arr=[])
     @internal_arr = []
     @input_arr = input_arr
+    @input_arr.each do |x|
+      add(x)
+    end
     # Fill in the rest of the initialize method here.
     # What should you do with each element of the incoming array?
   end
 
   def add(new_ele)
     # Hint: Use the Array#insert method.
-    raise NotImplementedError.new("You need to implement the add method!")
+    @internal_arr.insert(first_larger_index(new_ele),new_ele)
   end
 
   def size
@@ -35,6 +38,7 @@ class SortedArray
   end
 
   def index(target)
-    raise NotImplementedError.new("You need to implement the index method!")
+    # @internal_arr.index(target)
+
   end
 end
