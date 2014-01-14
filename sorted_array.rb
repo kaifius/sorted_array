@@ -3,6 +3,7 @@ class SortedArray
 
   def initialize(input_arr=[])
     @internal_arr = []
+    @input_arr = input_arr
     # Fill in the rest of the initialize method here.
     # What should you do with each element of the incoming array?
   end
@@ -17,11 +18,19 @@ class SortedArray
   end
 
   def [](index)
-    raise NotImplementedError.new("You need to implement the [] method!")
+    @internal_arr[index]
   end
 
   def first_larger_index(target, start_ind=0, end_ind=@internal_arr.size)
-    raise NotImplementedError.new("You need to implement the first_larger_index method!")
+
+    i = start_ind
+
+    @internal_arr.each do |x|
+      i += 1 if target > x
+    end
+    i
+
+    # raise NotImplementedError.new("You need to implement the first_larger_index method!")
   end
 
   def index(target)
