@@ -1,3 +1,5 @@
+require 'pry'
+
 class SortedArray
   attr_accessor :internal_arr # This is for convenience in the tests.
 
@@ -25,7 +27,20 @@ class SortedArray
   end
 
   def first_larger_index(target, start_ind=0, end_ind=@internal_arr.size)
+    # mid_ind = (start_ind + end_ind) / 2
+    # mid_ele = @internal_arr[mid_ind]
 
+    # if start_ind >= end_ind
+    #   nil
+    # elsif mid_ele >= target && (mid_ele - 1) < target
+    #   mid_ind
+    # elsif mid_ele > target
+    #   first_larger_index(target,start_ind,mid_ind)
+    # elsif mid_ele < target
+    #   first_larger_index(target,mid_ind+1,end_ind)
+    # end
+
+    #can't get binary search to work. linear search:
     array = @internal_arr.slice(start_ind..end_ind)
     i = start_ind
 
@@ -38,6 +53,11 @@ class SortedArray
 
   def index(target)
     # @internal_arr.index(target) ...But also:
-    first_larger_index(target) + 1
+    return_index = first_larger_index(target)
+    if @internal_arr[return_index] == target
+      return_index
+    else
+      nil
+    end
   end
 end
