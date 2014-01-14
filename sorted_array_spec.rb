@@ -76,6 +76,10 @@ describe SortedArray do
       @sorted_array.internal_arr = @source
     end
 
+    it 'takes in all arguments' do
+      @sorted_array.first_larger_index(4,1,2).should == 2
+    end
+
     it 'gives 0 for an empty array' do
       @sorted_array.internal_arr = []
       @sorted_array.first_larger_index(4).should == 0
