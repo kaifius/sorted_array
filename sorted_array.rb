@@ -32,13 +32,12 @@ class SortedArray
     array.each do |x|
       i += 1 if target > x
     end
-    i
 
-    # raise NotImplementedError.new("You need to implement the first_larger_index method!")
+    i
   end
 
   def index(target)
-    # @internal_arr.index(target)
-
+    # @internal_arr.index(target) ...But also:
+    first_larger_index(target) + 1
   end
 end
